@@ -11,4 +11,4 @@ before_install:
   - docker ps -a
 
 rvm:
- - 2.5.1
+ - 2.5.3
