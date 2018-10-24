@@ -1,3 +1,14 @@
+sudo: required
+
 language: ruby
+
+services:
+  - docker
+
+before_install:
+  - docker build -t dietopia/app .
+  - docker run dietopia/app rails new . --force --postegresql
+  - docker ps -a
+
 rvm:
- - 2.3.1
+ - 2.5.1
