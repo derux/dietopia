@@ -11,8 +11,8 @@ WORKDIR $APP_HOME
 COPY Gemfile $APP_HOME/Gemfile
 COPY Gemfile.lock $APP_HOME/Gemfile.lock
 
-# RUN gem sources --add https://gems.ruby-china.com/ --remove https://rubygems.org/
-# RUN bundle config mirror.https://rubygems.org https://gems.ruby-china.com
+RUN gem sources --add https://gems.ruby-china.com/ --remove https://rubygems.org/
+RUN bundle config mirror.https://rubygems.org https://gems.ruby-china.com
 RUN bundle install
 
 COPY . $APP_HOME
