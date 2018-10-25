@@ -11,10 +11,14 @@ rvm:
  - 2.5.3
 
 before_install:
-  - docker build -t dietopia/app .
-  - docker run -d dietopia/app bundle exec rails server
+  - docker-compose run web rails new . --force --database=postgresql
+  - docker-compose build
+  # - docker build -t dietopia/app .
+  # - docker run -d dietopia/app bundle exec rails server
   - docker ps -a
-  - docker-compose -v
+  - docker container ls -a
+  - docker service ls -a
+  - docker-compose run web ls -l
 
 script:
   - bundle exec rake test
