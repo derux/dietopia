@@ -16,7 +16,6 @@ before_install:
   # - docker run -d dietopia/app bundle exec rails server
   - docker ps -a
   - docker container ls -a
-  - docker service ls
   - docker-compose run web ls -l
 
 script:
