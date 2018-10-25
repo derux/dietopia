@@ -12,14 +12,14 @@ rvm:
 
 before_install:
   - docker-compose up -d
-  # - docker build -t dietopia/app .
-  # - docker run -d dietopia/app bundle exec rails server
-  - docker ps -a
+  - docker-compose run web rake db:create
   - docker container ls -a
-  - docker-compose run web ls -l
+  - docker ps -a
+  - docker volume ls
 
 before_script:
   - sudo chmod -R 777 /home/travis/build/derux/dietopia/tmp/
 
 script:
   - bundle exec rake test
+  - curl http://localhost:3000
