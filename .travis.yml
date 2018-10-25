@@ -10,7 +10,7 @@ rvm:
 
 before_install:
   - docker build -t dietopia/app .
-  - docker run dietopia/app rails new . --force --database=postgresql
+  - docker run dietopia/app bunde exec rails server
   - docker ps -a
 
 script:
